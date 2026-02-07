@@ -6,7 +6,6 @@ import {
   XAxis,
   YAxis,
   CartesianGrid,
-  ResponsiveContainer,
   Tooltip,
 } from "recharts"
 import {
@@ -59,35 +58,33 @@ export function ExperienceSalaryChart({ data }: ExperienceSalaryChartProps) {
           }}
           className="h-[300px]"
         >
-          <ResponsiveContainer width="100%" height="100%">
-            <ScatterChart margin={{ top: 5, right: 20, left: 10, bottom: 5 }}>
-              <CartesianGrid strokeDasharray="3 3" className="stroke-border" />
-              <XAxis
-                type="number"
-                dataKey="experience_required"
-                name="Experience"
-                unit=" yrs"
-                tick={{ fontSize: 12 }}
-                className="fill-muted-foreground"
-              />
-              <YAxis
-                type="number"
-                dataKey="avg_salary"
-                name="Salary"
-                tickFormatter={(v: number) => formatSalary(v)}
-                tick={{ fontSize: 12 }}
-                className="fill-muted-foreground"
-              />
-              <Tooltip content={<CustomTooltip />} />
-              <Scatter
-                name="Jobs"
-                data={data}
-                fill="hsl(170, 60%, 45%)"
-                fillOpacity={0.7}
-                r={5}
-              />
-            </ScatterChart>
-          </ResponsiveContainer>
+          <ScatterChart margin={{ top: 5, right: 20, left: 10, bottom: 5 }}>
+            <CartesianGrid strokeDasharray="3 3" className="stroke-border" />
+            <XAxis
+              type="number"
+              dataKey="experience_required"
+              name="Experience"
+              unit=" yrs"
+              tick={{ fontSize: 12 }}
+              className="fill-muted-foreground"
+            />
+            <YAxis
+              type="number"
+              dataKey="avg_salary"
+              name="Salary"
+              tickFormatter={(v: number) => formatSalary(v)}
+              tick={{ fontSize: 12 }}
+              className="fill-muted-foreground"
+            />
+            <Tooltip content={<CustomTooltip />} />
+            <Scatter
+              name="Jobs"
+              data={data}
+              fill="hsl(170, 60%, 45%)"
+              fillOpacity={0.7}
+              r={5}
+            />
+          </ScatterChart>
         </ChartContainer>
       </CardContent>
     </Card>

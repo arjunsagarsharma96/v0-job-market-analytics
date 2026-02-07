@@ -6,7 +6,6 @@ import {
   XAxis,
   YAxis,
   CartesianGrid,
-  ResponsiveContainer,
 } from "recharts"
 import {
   Card,
@@ -62,33 +61,31 @@ export function TopSkillsChart({ data }: TopSkillsChartProps) {
           }}
           className="h-[300px]"
         >
-          <ResponsiveContainer width="100%" height="100%">
-            <BarChart
-              data={topSkills}
-              layout="vertical"
-              margin={{ top: 5, right: 20, left: 80, bottom: 5 }}
-            >
-              <CartesianGrid strokeDasharray="3 3" className="stroke-border" />
-              <XAxis
-                type="number"
-                tick={{ fontSize: 12 }}
-                className="fill-muted-foreground"
-              />
-              <YAxis
-                type="category"
-                dataKey="skill"
-                tick={{ fontSize: 12 }}
-                className="fill-muted-foreground"
-                width={75}
-              />
-              <ChartTooltip content={<ChartTooltipContent />} />
-              <Bar
-                dataKey="frequency"
-                fill="var(--color-frequency)"
-                radius={[0, 4, 4, 0]}
-              />
-            </BarChart>
-          </ResponsiveContainer>
+          <BarChart
+            data={topSkills}
+            layout="vertical"
+            margin={{ top: 5, right: 20, left: 80, bottom: 5 }}
+          >
+            <CartesianGrid strokeDasharray="3 3" className="stroke-border" />
+            <XAxis
+              type="number"
+              tick={{ fontSize: 12 }}
+              className="fill-muted-foreground"
+            />
+            <YAxis
+              type="category"
+              dataKey="skill"
+              tick={{ fontSize: 12 }}
+              className="fill-muted-foreground"
+              width={75}
+            />
+            <ChartTooltip content={<ChartTooltipContent />} />
+            <Bar
+              dataKey="frequency"
+              fill="var(--color-frequency)"
+              radius={[0, 4, 4, 0]}
+            />
+          </BarChart>
         </ChartContainer>
       </CardContent>
     </Card>
